@@ -55,6 +55,12 @@ export const exampleReport = [1, 'Example server', 'kill', '2026.10.04-18.32.10'
     [['Photosynthesis', 'None', 'None', 'None'], ['Night Owl', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None']]]]
 ]];
 
+export const exampleDeathReport = [1, 'Example server', 'death', '2026.10.04-18.35.20', 'Natural', [
+  ['River', '', 'Gallimimus', 0.25, [1, [5, 0, 6, 100, 0, 12, 100, 100, 100, 100, 0, 50, 0, 0, 0, null, null, null, null],
+    [false, false, false, false, false, false, false, false, false], 'Female', [false, true, false, false, false],
+    [['Night Owl', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None']]]]
+]];
+
 function element(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -145,6 +151,7 @@ export function renderReport(data, example = false) {
 function load() {
   try {
     if (location.hash === '#demo') renderReport(exampleReport, true);
+    else if (location.hash === '#demo-death') renderReport(exampleDeathReport, true);
     else if (location.hash) renderReport(decodeSnapshot(location.hash));
   } catch {
     document.getElementById('welcome').hidden = true; document.getElementById('players').replaceChildren(); document.getElementById('sample-note').hidden = true;

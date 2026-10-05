@@ -10,4 +10,4 @@ UTF-8 JSON is compressed with LZSS: flag bytes represent up to eight low-bit-fir
 
 The sender includes a single inline Stats link only when the entire Discord message fits 2,000 UTF-16 units. Otherwise it sends a complete text attachment in the same webhook request instead of dropping fields or truncating a hyperlink. No snapshot is committed to GitHub per event.
 
-Use `#demo` for a clearly labelled fictional example. A plain URL displays instructions; malformed links display an error. The layout stacks the two player cards on small screens. No bot is needed.
+Use `#demo` for a clearly labelled fictional kill example, or `#demo-death` for a natural-death example with one player. Natural deaths display the logged cause and the deceased player's snapshot, with no killer card. The example values are fictional and do not identify a more specific natural cause. A plain URL displays instructions; malformed links display an error. The layout stacks the two player cards on small screens. No bot is needed.
