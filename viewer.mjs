@@ -47,16 +47,16 @@ export function validateSnapshot(data) {
 }
 
 export const exampleReport = [1, 'Example server', 'kill', '2026.10.04-18.32.10', '', [
-  ['River', '', 'Omniraptor', 1, [1, [82, 68, 91, 88, 12, 43, 100, 100, 100, 100, 0.8, 450, 3, 0.2, 0, null, null, null, null],
+  ['River', '', 'Omniraptor', 1, [0, [82, 68, 91, 88, 12, 43, 100, 100, 100, 100, 0.8, 450, 3, 0.2, 0, null, null, null, null],
     [true, false, false, false, false, false, false, false, false], 'Female', [false, false, false, false, false],
     [['Night Owl', 'Photosynthesis', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None']]]],
-  ['Fern', '', 'Stegosaurus', 0.755, [2, [21, 52, 74, 62, 38, 15, 100, 100, 100, 100, 1.5, 3200, 2, 0.1, 0, null, null, null, null],
+  ['Fern', '', 'Stegosaurus', 0.755, [0, [0, 52, 74, 62, 38, 15, 100, 100, 100, 100, 1.5, 3200, 2, 0.1, 0, null, null, null, null],
     [true, false, false, false, false, false, false, false, false], 'Male', [false, false, false, false, false],
     [['Photosynthesis', 'None', 'None', 'None'], ['Night Owl', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None']]]]
 ]];
 
 export const exampleDeathReport = [1, 'Example server', 'death', '2026.10.04-18.35.20', 'Natural', [
-  ['River', '', 'Gallimimus', 0.25, [1, [5, 0, 6, 100, 0, 12, 100, 100, 100, 100, 0, 50, 0, 0, 0, null, null, null, null],
+  ['River', '', 'Gallimimus', 0.25, [0, [0, 0, 6, 100, 0, 12, 100, 100, 100, 100, 0, 50, 0, 0, 0, null, null, null, null],
     [false, false, false, false, false, false, false, false, false], 'Female', [false, true, false, false, false],
     [['Night Owl', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None'], ['None', 'None', 'None', 'None']]]]
 ]];
@@ -90,7 +90,7 @@ function playerCard(player, role) {
   } else heading.textContent = name || 'Unknown player';
   header.append(heading, element('p', 'dino', `${dinosaur || 'Unknown dinosaur'} · ${growth === null ? 'Growth unavailable' : formatted(growth * 100) + '% growth'}`));
   const identity = element('div', 'identity');
-  identity.append(element('span', 'age', stats === null ? 'No matching sample' : `Sampled ${stats[0]}s before the event`));
+  identity.append(element('span', 'age', stats === null ? 'No matching snapshot' : `Captured within ${stats[0]}s of log time`));
   if (steam) {
     const copy = element('button', '', 'Copy Steam ID'); copy.type = 'button';
     copy.addEventListener('click', async () => {
