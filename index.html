@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Player stats captured before a kill or death in The Isle.">
+  <title>The Isle · Player stats</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./viewer.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">I</span> THE ISLE <span class="brand-separator">/</span> PLAYER STATS</div>
+      <p id="server" class="server"></p>
+      <h1 id="title">A closer look at the encounter.</h1>
+      <p id="event-meta" class="event-meta">Open a Stats link from Discord to see the players’ captured stats.</p>
+    </header>
+    <section id="welcome" class="welcome">
+      <p>The report shows vitals, mutations and conditions for each player, using a snapshot taken before the event.</p>
+      <button id="example" type="button">View example report <span aria-hidden="true">↗</span></button>
+    </section>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="players" class="players"></div>
+    <p id="sample-note" class="sample-note" hidden>These are sampled values from before the event, not exact final-hit measurements. Unavailable means the server did not provide a matching value.</p>
+    <footer><span>The Isle · Encounter report</span><span>Snapshot, not live stats</span></footer>
+  </main>
+</body>
+</html>
