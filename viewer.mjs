@@ -116,7 +116,6 @@ function playerCard(player, role) {
   const yesNo = value => value === null ? null : value ? 'Yes' : 'No';
   rows(bleeding, [['Blood lost', numbers[4] === null ? null : formatted(numbers[4]) + '%'], ['Actively bleeding', yesNo(flags[0])], ['Bleed clotted', yesNo(flags[1])],
     ['Bleed rate (raw)', numbers[10]], ['Bleed resistance (raw)', numbers[13]]]);
-  bleeding.append(element('p', 'section-note', 'Blood lost is the missing blood percentage, not the current bleeding rate.'));
   const mutationBlock = section(card, 'Mutations');
   for (const [index, label] of ['Equipped', 'Inherited', 'Elder A', 'Elder B'].entries()) {
     const group = element('div', 'mutation-group'); group.append(element('h4', '', label));
