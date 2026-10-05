@@ -139,7 +139,6 @@ export function renderReport(data, example = false) {
   validateSnapshot(data);
   const [, server, kind, time, cause, players] = data;
   document.getElementById('welcome').hidden = true; document.getElementById('error').hidden = true;
-  document.getElementById('sample-note').hidden = false;
   document.getElementById('server').textContent = example ? 'Example report · ' + server : server;
   document.getElementById('title').textContent = kind === 'kill' ? `${players[0][0]} killed ${players[1][0]}` : `${players[0][0]} died`;
   document.getElementById('event-meta').textContent = [kind === 'kill' ? 'Kill report' : 'Death report', time ? time.replace(/^(\d{4})\.(\d{2})\.(\d{2})-/, '$1-$2-$3 · ').replace(/\.(\d{2})\.(\d{2})$/, ':$1:$2') + ' (server log time)' : '', cause].filter(Boolean).join(' · ');
@@ -153,7 +152,7 @@ function load() {
     else if (location.hash === '#demo-death') renderReport(exampleDeathReport, true);
     else if (location.hash) renderReport(decodeSnapshot(location.hash));
   } catch {
-    document.getElementById('welcome').hidden = true; document.getElementById('players').replaceChildren(); document.getElementById('sample-note').hidden = true;
+    document.getElementById('welcome').hidden = true; document.getElementById('players').replaceChildren();
     const error = document.getElementById('error'); error.hidden = false;
     error.textContent = 'This stats link is incomplete or unsupported. Open the original Stats link in Discord again.';
   }
